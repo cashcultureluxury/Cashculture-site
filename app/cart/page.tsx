@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import "../styles/luxury.css";
 import { useState } from "react";
 import Link from "next/link";
@@ -50,7 +51,7 @@ export default function CartPage() {
             <div className="cart-page-lines">
               {items.map((item) => (
                 <div className="cart-page-line" key={`${item.id}-${item.size ?? ""}-${item.color ?? ""}`}>
-                  <img src={item.image} alt={item.name} width={96} height={120} />
+                  <Image src={item.image} alt={item.name} width={96} height={120} />
                   <div className="cart-page-line-info">
                     <p className="cart-line-name">{item.name}</p>
                     {(item.color || item.size) && (

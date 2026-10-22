@@ -1,8 +1,9 @@
+import Image from "next/image";
 import "../styles/story.css";
 import type { Metadata } from "next";
 import Link from "next/link";
 import CodeSection from "@/components/CodeSection";
-import { CORE_IDEA, HUSTLER_IS, HUSTLER_IS_NOT, HUSTLER_PATHS, HUSTLER_ROOMS, HUSTLER_TRAITS, MANTRA } from "@/data/brand";
+import { CORE_IDEA, HUSTLER_IS, HUSTLER_IS_NOT, HUSTLER_PATHS, HUSTLER_ROOMS, HUSTLER_TRAITS, MANTRA, STORY_MAILTO } from "@/data/brand";
 
 export const metadata: Metadata = {
   title: "The Culture",
@@ -19,9 +20,6 @@ const STORY_TYPES = [
   { label: "The Parent", title: "Building For Family", desc: "Running a business and a household. Doing both, every day." },
   { label: "The Creator", title: "Starting From Zero", desc: "No followers, no budget, no connections. Just a camera and a plan." },
 ];
-
-const STORY_MAILTO =
-  "mailto:cashculturebrand@gmail.com?subject=Never%20Count%20Me%20Out%20%E2%80%94%20My%20Story";
 
 export default function CulturePage() {
   return (
@@ -166,10 +164,10 @@ export default function CulturePage() {
         </div>
       </section>
       <div className="image-band">
-        <img src="/images/community-10.webp" alt="Friends in Cash Culture" loading="lazy" />
-        <img src="/images/community-8.webp" alt="A family in Cash Culture" loading="lazy" />
-        <img src="/images/community-7.webp" alt="Cash Culture on the waterfront" loading="lazy" />
-        <img src="/images/community-9.webp" alt="The team in Cash Culture" loading="lazy" />
+        <Image src="/images/community-10.webp" alt="Friends in Cash Culture" width={900} height={1200} sizes="(max-width: 1000px) 50vw, 25vw" />
+        <Image src="/images/community-8.webp" alt="A family in Cash Culture" width={900} height={1200} sizes="(max-width: 1000px) 50vw, 25vw" />
+        <Image src="/images/community-7.webp" alt="Cash Culture on the waterfront" width={900} height={1200} sizes="(max-width: 1000px) 50vw, 25vw" />
+        <Image src="/images/community-9.webp" alt="The team in Cash Culture" width={900} height={1200} sizes="(max-width: 1000px) 50vw, 25vw" />
       </div>
 
       {/* CTA */}

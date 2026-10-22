@@ -128,6 +128,13 @@ img { display: block; }
 .cc-nav .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--gold); transition: width 0.3s; }
 .cc-nav .nav-links a:hover, .cc-nav .nav-links a.active { color: var(--gold); }
 .cc-nav .nav-links a:hover::after, .cc-nav .nav-links a.active::after { width: 100%; }
+/* Shop: a button that opens Luxury / Essentials. Hover or click on desktop; always expanded in the mobile drawer. */
+.cc-nav .nav-shop { position: relative; }
+.cc-nav .nav-shop-toggle { background: none; border: none; padding: 0; cursor: pointer; font: inherit; color: #C4A896; font-size: 0.68rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; transition: color 0.2s; }
+.cc-nav .nav-shop-toggle::after { content: '▾'; margin-left: 6px; font-size: 0.6rem; }
+.cc-nav .nav-shop-toggle:hover, .cc-nav .nav-shop-toggle.active, .cc-nav .nav-shop.open .nav-shop-toggle { color: var(--gold); }
+.cc-nav .nav-shop-menu { list-style: none; position: absolute; top: 100%; left: -20px; padding: 18px 20px 14px; display: none; flex-direction: column; gap: 14px; min-width: 160px; background: rgba(8,8,8,0.98); border: 1px solid rgba(201,168,76,0.18); }
+.cc-nav .nav-shop.open .nav-shop-menu { display: flex; }
 .cc-nav .nav-icons { display: flex; gap: 18px; align-items: center; }
 .cc-nav .nav-icons button,
 .cc-nav .nav-icons a { background: none; border: none; padding: 0; cursor: pointer; display: flex; }
@@ -149,7 +156,10 @@ img { display: block; }
     transition: transform 0.35s cubic-bezier(0.16,1,0.3,1); border-left: 1px solid rgba(201,168,76,0.2);
   }
   .cc-nav .nav-links.open { transform: translateX(0); }
-  .cc-nav .nav-links a { font-size: 1rem; }
+  .cc-nav .nav-links a, .cc-nav .nav-shop-toggle { font-size: 1rem; }
+  .cc-nav .nav-shop-toggle { pointer-events: none; color: var(--muted); }
+  .cc-nav .nav-shop-toggle::after { content: none; }
+  .cc-nav .nav-shop-menu { display: flex; position: static; padding: 18px 0 0 16px; min-width: 0; background: none; border: none; border-left: 1px solid var(--line); margin-top: 14px; }
   .cc-nav .nav-icons .nav-burger { display: flex; }
 }
 

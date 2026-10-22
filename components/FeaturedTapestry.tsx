@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import WaitlistForm from "./WaitlistForm";
 
@@ -25,11 +26,13 @@ export default function FeaturedTapestry() {
   return (
     <div className="featured" style={{ direction: "rtl" }}>
       <div className="featured-imgs" style={{ direction: "ltr" }}>
-        <img src={main} alt="CC Big Ben Tapestry Hoodie" className="main-img" />
+        <Image src={main} alt="CC Big Ben Tapestry Hoodie" className="main-img" width={800} height={1000} sizes="(max-width: 1000px) 100vw, 50vw" />
         <div className="thumb-strip">
           {IMAGES.map((src) => (
-            <img
+            <Image
               key={src}
+              width={60}
+              height={80}
               src={src}
               className={`thumb${src === main ? " active" : ""}`}
               onClick={() => setMain(src)}

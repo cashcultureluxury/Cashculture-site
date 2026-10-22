@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { SHOPIFY_STORE_URL } from "@/data/shopify";
 
@@ -47,11 +48,13 @@ export default function FeaturedTrench() {
   return (
     <div className="featured">
       <div className="featured-imgs">
-        <img src={active.image} alt={`CC Luxury Trench Coat, ${active.name}`} className="main-img" />
+        <Image src={active.image} alt={`CC Luxury Trench Coat, ${active.name}`} className="main-img" width={790} height={886} sizes="(max-width: 1000px) 100vw, 50vw" />
         <div className="thumb-strip">
           {COLORS.map((c) => (
-            <img
+            <Image
               key={c.name}
+              width={60}
+              height={80}
               src={c.image}
               className={`thumb${c.name === color ? " active" : ""}`}
               onClick={() => setColor(c.name)}

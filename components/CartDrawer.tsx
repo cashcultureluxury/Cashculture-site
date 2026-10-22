@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
 import { useCart } from "./CartContext";
@@ -50,7 +51,7 @@ export default function CartDrawer() {
           ) : (
             items.map((item) => (
               <div className="cart-line" key={`${item.id}-${item.size ?? ""}-${item.color ?? ""}`}>
-                <img src={item.image} alt={item.name} width={64} height={80} />
+                <Image src={item.image} alt={item.name} width={64} height={80} />
                 <div>
                   <p className="cart-line-name">{item.name}</p>
                   {(item.color || item.size) && (

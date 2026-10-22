@@ -1,3 +1,4 @@
+import Image from "next/image";
 import "../../styles/luxury.css";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -49,7 +50,7 @@ export default function SilkBeaniePage() {
             { src: "/images/beanie-white-purple-pool.webp", label: "White & Purple" },
           ].map((g) => (
             <div className="beanie-gallery-item" key={g.src}>
-              <img src={g.src} alt={`CC dice beanie, ${g.label}`} loading="lazy" />
+              <Image src={g.src} alt={`CC dice beanie, ${g.label}`} width={800} height={1000} sizes="(max-width: 1000px) 50vw, 20vw" />
               <span className="beanie-gallery-tag">{g.label}</span>
             </div>
           ))}
