@@ -1,3 +1,4 @@
+import Image from "next/image";
 import "../styles/luxury.css";
 import "../styles/essentials.css";
 import type { Metadata } from "next";
@@ -90,14 +91,14 @@ export default function EssentialsPage() {
       {/* LIFESTYLE BANNER */}
       <section className="ess-banner">
         <div className="ess-banner-item">
-          <img src="/images/ess-banner-hustle.webp" alt="Cash Culture Hustle — the culture under the lights" loading="lazy" />
+          <Image src="/images/ess-banner-hustle.webp" alt="Cash Culture Hustle — the culture under the lights" width={1170} height={772} sizes="(max-width: 1000px) 100vw, 66vw" />
           <div className="ess-banner-cap">
             <p className="ess-banner-tag">Cash Culture</p>
             <h2 className="ess-banner-title">Worn In The Wild</h2>
           </div>
         </div>
         <div className="ess-banner-item tall">
-          <img src="/images/community-13.webp" alt="The crew in Cash Culture tapestry hoodies" loading="lazy" />
+          <Image src="/images/community-13.webp" alt="The crew in Cash Culture tapestry hoodies" width={900} height={1200} sizes="(max-width: 1000px) 100vw, 33vw" />
         </div>
       </section>
 

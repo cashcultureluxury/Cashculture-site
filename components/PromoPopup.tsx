@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 
@@ -131,7 +132,7 @@ export default function PromoPopup() {
         <button className="promo-close" onClick={close} aria-label="Close">&times;</button>
 
         <div className="promo-top">
-          <img src="/images/home-img-21.webp" alt="Cash Culture Luxury" className="promo-logo" width={80} height={80} />
+          <Image src="/images/home-img-21.webp" alt="Cash Culture Luxury" className="promo-logo" width={80} height={80} />
           <p className="promo-eyebrow">Welcome to Cash Culture Luxury</p>
           <div className="promo-pct">15%</div>
           <div className="promo-pct-label">OFF YOUR FIRST ORDER</div>

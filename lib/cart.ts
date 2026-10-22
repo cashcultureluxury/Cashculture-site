@@ -18,16 +18,42 @@ const EVENT = "cc:cart-changed";
 
 const isBrowser = () => typeof window !== "undefined";
 
-function read(): CartItem[] {
-  if (!isBrowser()) return [];
+function rawCart(): string | null {
+  if (!isBrowser()) return null;
   try {
-    const raw = window.localStorage.getItem(KEY);
-    if (!raw) return [];
+    return window.localStorage.getItem(KEY);
+  } catch {
+    return null;
+  }
+}
+
+export function parseItems(raw: string | null): CartItem[] {
+  if (!raw) return [];
+  try {
     const parsed = JSON.parse(raw);
     return Array.isArray(parsed) ? parsed : [];
   } catch {
     return [];
   }
+}
+
+function read(): CartItem[] {
+  return parseItems(rawCart());
+}
+
+// For React's useSyncExternalStore: the raw stored string is a stable snapshot
+// (same value until the cart changes), and subscribe fires on our own change
+// event plus "storage" so other tabs stay in sync.
+export const getCartSnapshot = rawCart;
+export const getServerCartSnapshot = (): string | null => null;
+
+export function subscribeCart(onChange: () => void): () => void {
+  window.addEventListener(EVENT, onChange);
+  window.addEventListener("storage", onChange);
+  return () => {
+    window.removeEventListener(EVENT, onChange);
+    window.removeEventListener("storage", onChange);
+  };
 }
 
 function write(items: CartItem[]): void {

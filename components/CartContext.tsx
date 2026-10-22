@@ -1,12 +1,14 @@
 "use client";
 
-import { createContext, useCallback, useContext, useEffect, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import {
   addItem as storeAdd,
   removeItem as storeRemove,
   setQty as storeSetQty,
-  getItems,
-  CART_EVENT,
+  getCartSnapshot,
+  getServerCartSnapshot,
+  parseItems,
+  subscribeCart,
   type CartItem,
 } from "@/lib/cart";
 
@@ -26,21 +28,10 @@ type CartContextValue = {
 const CartContext = createContext<CartContextValue | null>(null);
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
-  const [items, setItems] = useState<CartItem[]>([]);
+  const raw = useSyncExternalStore(subscribeCart, getCartSnapshot, getServerCartSnapshot);
+  const items = useMemo(() => parseItems(raw), [raw]);
   const [isOpen, setIsOpen] = useState(false);
   const [confirm, setConfirm] = useState<string | null>(null);
-
-  const sync = useCallback(() => setItems(getItems()), []);
-
-  useEffect(() => {
-    sync();
-    window.addEventListener(CART_EVENT, sync);
-    window.addEventListener("storage", sync); // sync across tabs
-    return () => {
-      window.removeEventListener(CART_EVENT, sync);
-      window.removeEventListener("storage", sync);
-    };
-  }, [sync]);
 
   const openCart = useCallback(() => setIsOpen(true), []);
   const closeCart = useCallback(() => setIsOpen(false), []);

@@ -130,19 +130,66 @@ export const LUXURY_QUALITIES = ["Limited", "Premium", "Intentional", "Collectib
 // What the community is built around beyond the clothing.
 export const COMMUNITY_PILLARS = ["Events", "Stories", "Collaborations", "Networking"];
 
+// Never Count Me Out: where people send their story.
+export const STORY_MAILTO =
+  "mailto:cashculturebrand@gmail.com?subject=Never%20Count%20Me%20Out%20%E2%80%94%20My%20Story";
+
 // The closing statement that signs off the homepage.
 export const CLOSING = ["Built Through Adversity.", "Driven By Purpose.", "Built To Last."];
 
-// Luxury product storytelling, prepared for dedicated Luxury product pages:
-// Campaign -> Story -> Design -> Materials -> Details -> Product -> Purchase.
-// Not rendered yet; the product and purchase steps reuse the existing catalog
-// and cart, so a page only needs this editorial layer on top.
+// Luxury product storytelling for the dedicated Luxury story pages:
+// Campaign -> Story -> Design -> Materials -> Details -> Buy.
+// The buy step reuses the existing product block and Shopify checkout, so a
+// story only needs this editorial layer on top. Pages live at /luxury/<slug>.
 export type LuxuryStory = {
-  /** Matches the product id / page slug. */
+  /** The page slug: /luxury/<slug>. */
   slug: string;
+  /** Product name as it reads in headings. */
+  name: string;
+  /** Collection label, e.g. "01 / Outerwear". */
+  label: string;
   campaign: { title: string; image: string; line?: string };
-  story: string;
-  design: string;
-  materials: string[];
+  story: string[];
+  design: { body: string; image?: string };
+  materials: { items: string[]; image?: string };
   details: string[];
 };
+
+// Draft copy built only from confirmed product facts; edit freely.
+export const LUXURY_STORIES: LuxuryStory[] = [
+  {
+    slug: "trench-coat",
+    name: "CC Luxury Trench Coat",
+    label: "01 / Outerwear",
+    campaign: {
+      title: "Built For The Room.",
+      image: "/images/luxury-img-2.webp",
+      line: "Refined style. Timeless warmth. Limited pieces.",
+    },
+    story: [
+      "Some rooms you walk into. Some rooms you work your way into. The trench coat is for the second kind.",
+      "It was made for the moment you stop dressing for where you are and start dressing for where you're going. The meeting, the dinner, the night that matters. Not to look like money. To look like someone who takes the work seriously.",
+    ],
+    design: {
+      body: "A clean, classic silhouette that works over a suit or over Essentials. Same person, every room. The details stay quiet until you look closer: red accent stitching through the lining and an embroidered Cash Culture Luxury patch inside, where only you know it's there.",
+      image: "/images/luxury-img-5.webp",
+    },
+    materials: {
+      items: [
+        "Premium wool-blend outer shell",
+        "Quilted interior lining for warmth",
+        "Red accent stitching throughout",
+        "Embroidered Luxury Cash Culture patch",
+      ],
+      image: "/images/luxury-img-3.webp",
+    },
+    details: [
+      "Available in Grey, Camel, and Black",
+      "Sizes S to XXL",
+      "Limited production run",
+      "Ships worldwide from Baltimore",
+    ],
+  },
+];
+
+export const luxuryStory = (slug: string) => LUXURY_STORIES.find((s) => s.slug === slug);

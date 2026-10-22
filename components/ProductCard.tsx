@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 const STARS = "★★★★★";
 
 type Color = { hex: string; title: string; border?: boolean };
@@ -36,7 +38,7 @@ export default function ProductCard(props: Props) {
     return (
       <a className="product-card" href={href} {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
         <div className="product-img">
-          <img src={image} alt={name} loading="lazy" />
+          <Image src={image} alt={name} width={600} height={800} sizes="(max-width: 1000px) 50vw, 25vw" />
           {badge && <span className="product-badge">{badge}</span>}
           {soldOut ? (
             <div className="out-of-stock"><span>Out of Stock</span></div>
@@ -55,7 +57,7 @@ export default function ProductCard(props: Props) {
   return (
     <div className="product-card">
       <div className="product-img">
-        <img src={image} alt={name} loading="lazy" />
+        <Image src={image} alt={name} width={600} height={800} sizes="(max-width: 1000px) 50vw, 25vw" />
         <div className="product-overlay">
           <a className="overlay-btn" href="https://www.instagram.com/cashcultureluxury" target="_blank" rel="noopener noreferrer">DM to Order</a>
         </div>

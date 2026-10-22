@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import WaitlistForm from "./WaitlistForm";
 
@@ -42,12 +43,14 @@ export default function FeaturedSweatsuit() {
             preload="metadata"
           />
         ) : (
-          <img src={current.src} alt="CC SZA Sweat Suit" className="main-img" />
+          <Image src={current.src} alt="CC SZA Sweat Suit" className="main-img" width={800} height={1000} sizes="(max-width: 1000px) 100vw, 50vw" />
         )}
         <div className="thumb-strip">
           {MEDIA.map((m, i) => (
             <span className="thumb-wrap" key={i}>
-              <img
+              <Image
+                width={60}
+                height={80}
                 src={m.type === "video" ? m.poster : m.src}
                 className={`thumb${i === idx ? " active" : ""}`}
                 onClick={() => setIdx(i)}

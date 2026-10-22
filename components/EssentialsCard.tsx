@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
 import { useCart } from "./CartContext";
@@ -26,7 +27,7 @@ export default function EssentialsCard({ id, image, name, price, reviews, badge,
   return (
     <div className="product-card ess-card">
       <Link href={`/essentials/${id}`} className="product-img" aria-label={`View ${name}`}>
-        <img src={shownImage} alt={color ? `${name} - ${color.name}` : name} loading="lazy" />
+        <Image src={shownImage} alt={color ? `${name} - ${color.name}` : name} width={600} height={800} sizes="(max-width: 1000px) 50vw, 25vw" />
         {badge && <span className="product-badge">{badge}</span>}
       </Link>
       <div className="product-info">

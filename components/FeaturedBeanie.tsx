@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
 // Base beanie colors. `border` softens light swatches against the dark UI.
@@ -86,7 +87,10 @@ export default function FeaturedBeanie() {
   return (
     <div className="featured">
       <div className="featured-imgs">
-        <img
+        <Image
+          width={800}
+          height={1000}
+          sizes="(max-width: 1000px) 100vw, 50vw"
           key={img}
           src={img}
           alt={`CC Silk Beanie, ${colorLabel}`}
@@ -96,7 +100,9 @@ export default function FeaturedBeanie() {
         {gallery.length > 1 && (
           <div className="thumb-strip">
             {gallery.map((g, i) => (
-              <img
+              <Image
+                width={60}
+                height={80}
                 key={g}
                 src={g}
                 className={`thumb${i === idx ? " active" : ""}`}

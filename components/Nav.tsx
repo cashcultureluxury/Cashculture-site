@@ -1,17 +1,22 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCart } from "./CartContext";
 
 // Primary navigation: shop first, then the world behind the clothes. Kept short
-// on purpose; everything else lives in the footer.
-const LINKS = [
+// on purpose; everything else lives in the footer. Shop opens to its lines.
+const SHOP = [
   { label: "Luxury", href: "/luxury" },
   { label: "Essentials", href: "/essentials" },
+];
+
+const LINKS = [
   { label: "The Culture", href: "/culture" },
   { label: "Family", href: "/family" },
+  { label: "Stories", href: "/stories" },
   { label: "About", href: "/about" },
 ];
 
@@ -19,6 +24,7 @@ export default function Nav() {
   const { count, openCart } = useCart();
   const [solid, setSolid] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [shopOpen, setShopOpen] = useState(false);
   const pathname = usePathname();
   const onHome = pathname === "/";
 
@@ -33,21 +39,56 @@ export default function Nav() {
 
   // A link is active on its own route and any route nested under it.
   const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
+  const shopActive = SHOP.some((l) => isActive(l.href));
+
+  const closeMenus = () => {
+    setMenuOpen(false);
+    setShopOpen(false);
+  };
 
   return (
     <nav className={`cc-nav${isSolid ? " solid" : ""}`}>
       <Link href="/" className="nav-logo" aria-label="Cash Culture home">
-        <img src="/images/home-img-1.webp" alt="Cash Culture" width={60} height={52} />
+        <Image src="/images/home-img-1.webp" alt="Cash Culture" width={39} height={52} preload />
       </Link>
 
       <ul className={`nav-links${menuOpen ? " open" : ""}`}>
+        <li
+          className={`nav-shop${shopOpen ? " open" : ""}`}
+          onMouseEnter={() => setShopOpen(true)}
+          onMouseLeave={() => setShopOpen(false)}
+        >
+          <button
+            type="button"
+            className={`nav-shop-toggle${shopActive ? " active" : ""}`}
+            aria-expanded={shopOpen}
+            aria-controls="nav-shop-menu"
+            onClick={() => setShopOpen((o) => !o)}
+          >
+            Shop
+          </button>
+          <ul className="nav-shop-menu" id="nav-shop-menu">
+            {SHOP.map((l) => (
+              <li key={l.href}>
+                <Link
+                  href={l.href}
+                  className={isActive(l.href) ? "active" : undefined}
+                  aria-current={isActive(l.href) ? "page" : undefined}
+                  onClick={closeMenus}
+                >
+                  {l.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </li>
         {LINKS.map((l) => (
           <li key={l.href}>
             <Link
               href={l.href}
               className={isActive(l.href) ? "active" : undefined}
               aria-current={isActive(l.href) ? "page" : undefined}
-              onClick={() => setMenuOpen(false)}
+              onClick={closeMenus}
             >
               {l.label}
             </Link>
