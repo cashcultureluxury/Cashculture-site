@@ -1,3 +1,9 @@
+# Cash Culture
+
+For the ones who build. The website for [cashcultureluxury.com](https://cashcultureluxury.com).
+
+Every push to `main` deploys the live site through Vercel.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
