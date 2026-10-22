@@ -1,0 +1,33 @@
+{
+  "cc-trench": {
+    "name": "CC Luxury Trench Coat",
+    "price": 249,
+    "image": "/images/luxury-img-3.webp",
+    "paymentLinkEnv": "STRIPE_PAYMENT_LINK_TRENCH",
+    "stripePriceEnv": "STRIPE_PRICE_TRENCH"
+  },
+  "beanie-black-yellow": {
+    "name": "CC Beanie, Black and Yellow",
+    "price": 30,
+    "image": "/images/beanie-black-yellow.webp",
+    "paymentLinkEnv": "STRIPE_PAYMENT_LINK_BEANIE"
+  },
+  "beanie-white-red": {
+    "name": "CC Beanie, White and Red",
+    "price": 30,
+    "image": "/images/home-img-6.webp",
+    "paymentLinkEnv": "STRIPE_PAYMENT_LINK_BEANIE"
+  },
+  "beanie-black-purple": {
+    "name": "CC Beanie, Black and Purple",
+    "price": 30,
+    "image": "/images/beanie-black-purple.webp",
+    "paymentLinkEnv": "STRIPE_PAYMENT_LINK_BEANIE"
+  },
+  "beanie-black-green": {
+    "name": "CC Beanie, Black and Green",
+    "price": 30,
+    "image": "/images/home-img-15.webp",
+    "paymentLinkEnv": "STRIPE_PAYMENT_LINK_BEANIE"
+  }
+}

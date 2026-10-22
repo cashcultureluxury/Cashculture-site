@@ -1,0 +1,62 @@
+/* Essentials page styles. Reuses the .cc-lux structural rules; .cc-ess re-themes
+   the gold accent to the Essentials taupe and restyles the hero + product card. */
+
+.cc-ess {
+  /* Override the luxury gold tokens so all inherited .cc-lux rules re-tint. */
+  --gold: #C4A896;
+  --gold-light: #E0D0C0;
+}
+
+/* Neutral hero (luxury uses warm gold gradient). */
+.cc-ess .lux-hero {
+  background-image:
+    linear-gradient(135deg, rgba(8,13,20,0.86) 0%, rgba(12,18,32,0.66) 45%, rgba(5,6,8,0.92) 100%),
+    url("/images/ess-hero-bg.webp");
+  background-size: cover, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+}
+.cc-ess .lux-hero-deco { color: rgba(196,168,150,0.05); }
+.cc-ess .lux-title { color: var(--gold-light); }
+
+/* Product card: visible info layout with size selector (no hover overlay). */
+.cc-ess .ess-card .product-info { display: flex; flex-direction: column; gap: 10px; }
+.cc-ess .ess-colors { display: flex; gap: 8px; align-items: center; }
+.cc-ess .ess-swatch {
+  width: 20px; height: 20px; border-radius: 50%; padding: 0; cursor: pointer;
+  border: 1px solid rgba(255,255,255,0.25); box-shadow: inset 0 0 0 2px rgba(0,0,0,0.15);
+  transition: transform 0.15s, box-shadow 0.15s; font-family: inherit;
+}
+.cc-ess .ess-swatch:hover { transform: scale(1.12); }
+.cc-ess .ess-swatch.active { box-shadow: 0 0 0 2px var(--gold); border-color: var(--gold); }
+.cc-ess .ess-sizes { display: flex; gap: 6px; flex-wrap: wrap; }
+.cc-ess .ess-size {
+  min-width: 34px; padding: 6px 8px; font-size: 0.62rem; font-weight: 600; letter-spacing: 1px;
+  background: transparent; color: #C4A896; border: 1px solid rgba(255,255,255,0.18);
+  cursor: pointer; transition: all 0.2s; font-family: inherit;
+}
+.cc-ess .ess-size:hover { border-color: var(--gold); color: var(--gold); }
+.cc-ess .ess-size.active { border-color: var(--gold); color: #000; background: var(--gold); }
+.cc-ess .ess-add {
+  font-size: 0.6rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  color: #000; background: var(--gold); border: none; padding: 11px 20px; cursor: pointer;
+  transition: background 0.2s, opacity 0.2s; font-family: inherit;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+}
+.cc-ess .ess-add:hover:not(:disabled) { background: var(--gold-light); }
+.cc-ess .ess-add:disabled { background: #2a2a2a; color: var(--muted); cursor: not-allowed; }
+
+/* Lifestyle banner — the culture worn in the wild */
+.cc-ess .ess-banner { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+.cc-ess .ess-banner-item { position: relative; aspect-ratio: 5 / 4; overflow: hidden; }
+.cc-ess .ess-banner-item img { width: 100%; height: 100%; object-fit: cover; object-position: center 38%; display: block; }
+.cc-ess .ess-banner-item.tall img { object-position: center 22%; }
+.cc-ess .ess-banner-cap { position: absolute; inset: auto 0 0 0; padding: 30px 34px; background: linear-gradient(to top, rgba(5,6,10,0.82), rgba(5,6,10,0.15) 70%, transparent); }
+.cc-ess .ess-banner-tag { font-size: 0.6rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 7px; }
+.cc-ess .ess-banner-title { font-family: var(--font-serif); font-size: clamp(1.4rem, 3vw, 2.4rem); line-height: 1.1; color: #fff; }
+@media (max-width: 768px) { .cc-ess .ess-banner { grid-template-columns: 1fr; } }
+
+/* Product card links to the order page */
+.cc-ess a.product-img { display: block; }
+.cc-ess .product-name-link { text-decoration: none; color: inherit; }
+.cc-ess .product-name-link:hover .product-name { color: var(--gold); }

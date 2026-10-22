@@ -1,0 +1,12 @@
+/* Shared layout for /checkout/success and the legal pages */
+.cc-page { max-width: 760px; margin: 0 auto; padding: 140px 24px 100px; }
+.cc-page h1 { font-family: var(--font-serif); font-size: clamp(1.73rem, 4.32vw, 2.88rem); letter-spacing: 1px; color: var(--gold-light); margin-bottom: 8px; font-weight: 700; }
+.cc-page .eyebrow { font-size: 0.6rem; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+.cc-page .updated { font-size: 0.62rem; color: var(--muted); margin-bottom: 36px; letter-spacing: 1px; }
+.cc-page h2 { font-family: var(--font-serif); font-size: 1.01rem; letter-spacing: 0.75px; color: #C4A896; margin: 32px 0 10px;  }
+.cc-page p, .cc-page li { font-size: 0.8rem; line-height: 1.8; color: rgba(255,255,255,0.62); margin-bottom: 12px; }
+.cc-page ul { padding-left: 20px; }
+.cc-page a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+.cc-page .lead { font-size: 0.9rem; color: #C4A896; margin-bottom: 28px; }
+.cc-page .btn-gold { display: inline-block; text-decoration: none; margin-top: 16px; }
+.cc-page .success-mark { font-family: var(--font-serif); font-size: 2.88rem; color: var(--gold); line-height: 1; margin-bottom: 16px; font-weight: 700; }

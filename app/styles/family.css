@@ -1,0 +1,119 @@
+/* Family page, scoped under .cc-family.
+   Editorial serif display type, warm sand headlines, gold used for rules and
+   accents only. */
+
+.cc-family { background: var(--black); }
+.cc-family [id] { scroll-margin-top: 90px; }
+
+
+/* ---- Hero: split ---- */
+.cc-family .fam-hero { display: grid; grid-template-columns: 1fr 1.05fr; min-height: 640px; border-bottom: 1px solid var(--line); background: linear-gradient(90deg, var(--black) 0%, var(--brown) 100%); }
+.cc-family .fam-hero-content { padding: 150px 56px 72px 64px; display: flex; flex-direction: column; justify-content: center; }
+.cc-family .fam-title { font-family: var(--font-serif); font-weight: 700; text-transform: uppercase; font-size: clamp(2.6rem, 4.6vw, 4.4rem); line-height: 1.02; letter-spacing: 0.5px; color: var(--sand); margin-bottom: 24px; }
+.cc-family .fam-subtitle { font-family: var(--font-serif); font-style: italic; font-size: clamp(1.2rem, 1.9vw, 1.6rem); color: var(--cream); margin-bottom: 22px; }
+.cc-family .fam-lede { font-size: 0.82rem; line-height: 1.95; color: rgba(255,255,255,0.66); max-width: 500px; margin-bottom: 34px; }
+.cc-family .fam-hero-links { display: flex; gap: 32px; flex-wrap: wrap; }
+.cc-family .fam-hero-photo { position: relative; overflow: hidden; }
+.cc-family .fam-hero-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 4%; filter: saturate(0.7) contrast(1.05) brightness(0.85); }
+.cc-family .fam-hero-photo::before { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, var(--black) 0%, rgba(8,8,8,0.25) 30%, rgba(8,8,8,0) 60%), linear-gradient(0deg, rgba(8,8,8,0.55) 0%, transparent 35%); }
+
+/* ---- Shared blocks ---- */
+.cc-family .fam-block { padding: 110px 64px; }
+.cc-family .fam-block-alt { background: var(--dark); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.cc-family .fam-head { max-width: 720px; margin-bottom: 56px; }
+.cc-family .fam-head-row { display: flex; justify-content: space-between; align-items: flex-end; gap: 48px; margin-bottom: 52px; }
+.cc-family .fam-head-aside { max-width: 400px; }
+.cc-family .fam-head-aside p:not(.aside-caps) { font-size: 0.8rem; line-height: 1.8; color: rgba(255,255,255,0.6); margin-top: 6px; }
+.cc-family .fam-h2 { font-family: var(--font-serif); font-weight: 700; font-size: clamp(2rem, 3.8vw, 3.2rem); line-height: 1.12; color: var(--sand); }
+.cc-family .fam-h2 em { color: var(--gold); font-weight: 400; }
+.cc-family .fam-head-sub { margin-top: 16px; font-size: 0.86rem; line-height: 1.9; color: rgba(255,255,255,0.6); }
+
+/* ---- Roster: cards ---- */
+.cc-family .roster { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 22px; align-items: stretch; }
+.cc-family .member { display: flex; flex-direction: column; background: rgba(255,255,255,0.015); border: 1px solid rgba(201,168,76,0.18); transition: border-color 0.3s; }
+.cc-family .member:hover { border-color: rgba(201,168,76,0.5); }
+.cc-family .member-img { aspect-ratio: 1 / 1; overflow: hidden; background: var(--mid); }
+.cc-family .member-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; transition: transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94); }
+.cc-family .member:hover .member-img img { transform: scale(1.04); }
+.cc-family .member-body { padding: 22px 20px 20px; display: flex; flex-direction: column; flex: 1; }
+.cc-family .member-name { font-family: var(--font-serif); font-weight: 400; font-size: 1.3rem; line-height: 1.2; color: var(--cream); margin-bottom: 10px; }
+.cc-family .member-meta { font-size: 0.54rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; line-height: 1.8; color: var(--muted); }
+.cc-family .member-rule { display: block; width: 28px; height: 1px; background: var(--gold); margin: 16px 0 18px; }
+.cc-family .member-building { font-family: var(--font-serif); font-style: italic; font-size: 0.95rem; line-height: 1.5; color: var(--gold-light); margin-bottom: 14px; }
+.cc-family .member-building span { display: block; font-family: var(--font-sans); font-style: normal; font-size: 0.52rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+.cc-family .member-quote { font-style: italic; font-size: 0.76rem; line-height: 1.8; color: rgba(239,228,210,0.78); margin: 0; }
+.cc-family .member-value { margin-top: 14px; font-size: 0.54rem; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+.cc-family .member-value span { color: var(--gold); margin-left: 6px; }
+.cc-family .member-foot { margin-top: auto; padding-top: 22px; display: flex; flex-direction: column; gap: 12px; }
+.cc-family .member-socials { font-size: 0.54rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+.cc-family .member-socials a { color: var(--sand); text-decoration: none; }
+.cc-family .member-socials a:hover { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+.cc-family .member-code { font-size: 0.54rem; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); display: flex; align-items: center; gap: 12px; }
+.cc-family .member-code span { background: var(--gold); color: #0b0906; font-weight: 700; letter-spacing: 2px; padding: 4px 10px; }
+
+
+/* ---- Philosophy ---- */
+.cc-family .fam-split { display: grid; grid-template-columns: 1.1fr 1fr; gap: 80px; align-items: start; }
+.cc-family .fam-split .fam-h2 { margin-bottom: 24px; }
+.cc-family .fam-prose p { font-size: 0.86rem; line-height: 2; color: rgba(255,255,255,0.64); margin-bottom: 16px; max-width: 560px; }
+.cc-family .fam-prose a { color: var(--gold-light); text-underline-offset: 3px; }
+.cc-family .fam-pull { margin-top: 34px; padding: 6px 0 6px 26px; border-left: 1px solid var(--gold); font-family: var(--font-serif); font-style: italic; font-size: clamp(1.1rem, 1.8vw, 1.4rem); line-height: 1.6; color: var(--cream); max-width: 560px; }
+.cc-family .fam-lists { display: flex; flex-direction: column; gap: 44px; padding-top: 8px; }
+.cc-family .fam-list-title { font-size: 0.56rem; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+.cc-family .fam-tags { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+.cc-family .fam-tags li { font-size: 0.62rem; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(239,228,210,0.8); border: 1px solid rgba(255,255,255,0.12); padding: 9px 13px; }
+.cc-family .fam-traits { list-style: none; border-top: 1px solid var(--line); }
+.cc-family .fam-traits li { font-family: var(--font-serif); font-size: 1.2rem; color: var(--cream); padding: 12px 0; border-bottom: 1px solid var(--line); display: flex; align-items: baseline; gap: 16px; }
+.cc-family .fam-traits li::before { content: ''; width: 5px; height: 5px; background: var(--gold); transform: rotate(45deg) translateY(-3px); flex-shrink: 0; }
+
+/* ---- What are you building ---- */
+.cc-family .fam-building { padding: 140px 64px; text-align: center; background: radial-gradient(ellipse at center, rgba(201,168,76,0.08) 0%, transparent 62%), var(--brown); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.cc-family .fam-building .rule-kicker::after { content: ''; width: 26px; height: 1px; background: var(--gold); }
+.cc-family .fam-building-title { font-family: var(--font-serif); font-weight: 700; font-size: clamp(2.6rem, 6vw, 5rem); line-height: 1.02; color: var(--sand); margin-bottom: 24px; }
+.cc-family .fam-building p { font-family: var(--font-serif); font-style: italic; font-size: clamp(1.05rem, 1.7vw, 1.35rem); line-height: 1.65; color: rgba(239,228,210,0.78); max-width: 620px; margin: 0 auto 38px; }
+
+/* ---- Perks + steps ---- */
+.cc-family .perks { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.cc-family .perk { padding: 34px 30px 38px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.cc-family .perk-title { font-family: var(--font-serif); font-size: 1.2rem; color: var(--cream); margin-bottom: 10px; }
+.cc-family .perk-desc { font-size: 0.76rem; line-height: 1.8; color: rgba(255,255,255,0.56); }
+.cc-family .steps { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; margin-top: 64px; }
+.cc-family .step-num { display: block; font-family: var(--font-serif); font-size: 1.2rem; color: var(--gold); padding-bottom: 12px; margin-bottom: 14px; border-bottom: 1px solid var(--line); }
+.cc-family .step p { font-size: 0.76rem; line-height: 1.75; color: rgba(255,255,255,0.6); }
+
+/* ---- Application ---- */
+.cc-family .apply-wrap { max-width: 780px; }
+.cc-family .fam-form { display: flex; flex-direction: column; gap: 44px; }
+.cc-family .fam-form fieldset { border: none; display: flex; flex-direction: column; gap: 18px; }
+.cc-family .fam-form legend { font-family: var(--font-serif); font-size: 1.2rem; color: var(--gold); padding-bottom: 12px; margin-bottom: 8px; border-bottom: 1px solid var(--line); width: 100%; }
+.cc-family .fam-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.cc-family .fam-form label { display: flex; flex-direction: column; gap: 8px; font-size: 0.6rem; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+.cc-family .fam-form label.fam-lead { font-family: var(--font-serif); font-style: italic; font-size: 1.2rem; letter-spacing: 0; text-transform: none; color: var(--cream); }
+.cc-family .fam-form input, .cc-family .fam-form select, .cc-family .fam-form textarea { background: var(--black); border: 1px solid rgba(255,255,255,0.1); color: var(--cream); padding: 14px 16px; font-family: var(--font-sans); font-style: normal; font-size: 0.8rem; letter-spacing: 0; text-transform: none; outline: none; transition: border-color 0.2s; border-radius: 0; }
+.cc-family .fam-form input:focus, .cc-family .fam-form select:focus, .cc-family .fam-form textarea:focus { border-color: var(--gold); }
+.cc-family .fam-form textarea { resize: vertical; line-height: 1.7; }
+.cc-family .fam-form .btn-gold { align-self: flex-start; }
+.cc-family .fam-error { font-size: 0.7rem; color: var(--gold-light); letter-spacing: 1px; }
+.cc-family .fam-success { text-align: center; padding: 64px 28px; border: 1px solid var(--line); background: rgba(201,168,76,0.04); }
+.cc-family .fam-success-mark { font-size: 2.4rem; color: var(--gold); line-height: 1; margin-bottom: 14px; }
+.cc-family .fam-success h3 { font-family: var(--font-serif); font-size: 1.8rem; color: var(--cream); margin-bottom: 12px; font-weight: 400; }
+.cc-family .fam-success p { font-size: 0.82rem; color: rgba(255,255,255,0.6); line-height: 1.85; max-width: 480px; margin: 0 auto; }
+
+@media (max-width: 1000px) {
+  .cc-family .fam-hero { grid-template-columns: 1fr; min-height: 0; }
+  .cc-family .fam-hero-photo { order: -1; height: 62vh; min-height: 380px; margin-top: 64px; }
+  .cc-family .fam-hero-photo::before { background: linear-gradient(0deg, var(--black) 0%, rgba(8,8,8,0.2) 45%, transparent 70%); }
+  .cc-family .fam-hero-content { padding: 8px 22px 64px; }
+  .cc-family .fam-block { padding: 76px 22px; }
+  .cc-family .fam-head-row { flex-direction: column; align-items: flex-start; gap: 18px; margin-bottom: 36px; }
+  .cc-family .roster { grid-template-columns: 1fr 1fr; gap: 14px; }
+  .cc-family .fam-split { grid-template-columns: 1fr; gap: 52px; }
+  .cc-family .fam-building { padding: 90px 22px; }
+  .cc-family .perks { grid-template-columns: 1fr; }
+  .cc-family .steps { grid-template-columns: 1fr 1fr; gap: 26px; }
+  .cc-family .fam-row { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .cc-family .roster { grid-template-columns: 1fr; }
+  .cc-family .member-img { aspect-ratio: 4 / 5; }
+}
