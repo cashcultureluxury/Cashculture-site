@@ -11,7 +11,7 @@ const DEFAULT_SIZES = ["S", "M", "L", "XL", "2XL"];
 
 // Full product / order page body for an Essentials item. Reuses the .cc-lux
 // .featured layout. Lets the customer pick a colorway (swaps the image) and
-// size, choose a quantity, add to cart, or buy now (straight to Stripe).
+// size, choose a quantity, add to cart, or buy now (straight to Shopify).
 export default function ProductOrder({ product }: { product: EssentialsItem }) {
   const { id, name, price, image, reviews, category, sizes = DEFAULT_SIZES, colors, gallery } = product;
 

@@ -1,4 +1,4 @@
-/* Shared layout for /checkout/success and the legal pages */
+/* Shared layout for the legal pages */
 .cc-page { max-width: 760px; margin: 0 auto; padding: 140px 24px 100px; }
 .cc-page h1 { font-family: var(--font-serif); font-size: clamp(1.73rem, 4.32vw, 2.88rem); letter-spacing: 1px; color: var(--gold-light); margin-bottom: 8px; font-weight: 700; }
 .cc-page .eyebrow { font-size: 0.6rem; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }

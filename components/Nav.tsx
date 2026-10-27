@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCart } from "./CartContext";
+import { SHOPIFY_ACCOUNT_URL } from "@/data/shopify";
 
 // Primary navigation: shop first, then the world behind the clothes. Kept short
 // on purpose; everything else lives in the footer.
@@ -57,9 +58,10 @@ export default function Nav() {
 
       <div className="nav-icons">
         {/* Search icon removed until site search exists; add it back with a working search. */}
-        <Link href="/account" aria-label="Account">
+        {/* Accounts and order history live on Shopify, where checkout happens. */}
+        <a href={SHOPIFY_ACCOUNT_URL} aria-label="Account">
           <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
-        </Link>
+        </a>
         <button className="cart-wrap" aria-label={`Cart, ${count} items`} type="button" onClick={openCart}>
           <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" /><line x1="3" y1="6" x2="21" y2="6" /><path d="M16 10a4 4 0 0 1-8 0" /></svg>
           <span className="cart-badge">{count}</span>

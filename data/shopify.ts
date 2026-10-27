@@ -13,6 +13,9 @@ export const SHOPIFY_DOMAIN = "ysaa0n-ay.myshopify.com";
 /** The Shopify storefront home — fallback for products not individually mapped. */
 export const SHOPIFY_STORE_URL = `https://${SHOPIFY_DOMAIN}`;
 
+/** Shopify customer account: sign-in and order history for Shopify orders. */
+export const SHOPIFY_ACCOUNT_URL = `${SHOPIFY_STORE_URL}/account`;
+
 export const SHOPIFY_HANDLES: Record<string, string> = {
   // Hoodies
   "ess-hoodie-teddy": "heavyweight-pure-cotton-handcrafted-monkey-wash-drop-shoulder-oversized-hoodie-25", // -> Money Bear Hoodie
