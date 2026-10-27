@@ -19,7 +19,6 @@ const BEST_SELLERS = [...ESSENTIALS]
     image: p.image,
     name: p.name,
     price: `$${p.price.toFixed(2)}`,
-    reviews: p.reviews,
     badge: p.badge,
   }));
 

@@ -7,8 +7,23 @@ import { usePathname } from "next/navigation";
 const SEEN_KEY = "cc_promo_seen";
 const SUBSCRIBED_KEY = "cc_subscribed";
 const SEEN_TTL_DAYS = 14;
-const DWELL_MS = 25_000;
-const SCROLL_TRIGGER = 0.5; // 50% scroll depth
+const DWELL_MS = 20_000;
+const SCROLL_TRIGGER = 0.75; // 75% scroll depth
+// Let people look around first: never on the first page of a visit.
+const PAGES_KEY = "cc_pages_viewed";
+const MIN_PAGES = 2;
+
+// Counts page views in this browser tab's visit. Storage can be blocked
+// (private mode), in which case we treat every page as the first.
+function countPageView(): number {
+  try {
+    const n = Number(sessionStorage.getItem(PAGES_KEY) || 0) + 1;
+    sessionStorage.setItem(PAGES_KEY, String(n));
+    return n;
+  } catch {
+    return 1;
+  }
+}
 
 function eligible(pathname: string): boolean {
   if (typeof window === "undefined") return false;
@@ -42,7 +57,8 @@ export default function PromoPopup() {
   }, [pathname]);
 
   useEffect(() => {
-    if (!eligible(pathname)) return;
+    const pages = countPageView();
+    if (pages < MIN_PAGES || !eligible(pathname)) return;
 
     const dwell = window.setTimeout(fire, DWELL_MS);
 

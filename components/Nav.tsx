@@ -49,7 +49,7 @@ export default function Nav() {
   return (
     <nav className={`cc-nav${isSolid ? " solid" : ""}`}>
       <Link href="/" className="nav-logo" aria-label="Cash Culture home">
-        <Image src="/images/home-img-1.webp" alt="Cash Culture" width={39} height={52} preload />
+        <Image src="/images/cc-logo.webp" alt="Cash Culture" width={90} height={40} preload />
       </Link>
 
       <ul className={`nav-links${menuOpen ? " open" : ""}`}>
