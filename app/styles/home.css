@@ -126,7 +126,7 @@
   .cc-home .hero { padding: 96px 22px 64px; min-height: 88vh; }
   .cc-home .hero-img-wrap { display: none; }
   .cc-home .products-grid { grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); }
-  .cc-home .home-gallery { grid-template-columns: repeat(2, 1fr); }
+  .cc-home .home-gallery { grid-template-columns: repeat(3, 1fr); gap: 8px; }
   .cc-home .philosophy { grid-template-columns: 1fr; gap: 44px; }
   .cc-home .hustler { grid-template-columns: 1fr; }
   .cc-home .hustler-img { min-height: 420px; }
