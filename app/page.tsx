@@ -1,3 +1,4 @@
+import Image from "next/image";
 import "./styles/home.css";
 import Link from "next/link";
 import ProductCard from "@/components/ProductCard";
@@ -49,7 +50,7 @@ export default function Home() {
           </div>
         </div>
         <div className="hero-img-wrap">
-          <img src="/images/home-img-2.webp" alt="A builder in the Cash Culture tapestry hoodie" fetchPriority="high" width={440} height={660} />
+          <Image src="/images/home-img-2.webp" alt="A builder in the Cash Culture tapestry hoodie" width={440} height={660} sizes="380px" preload />
         </div>
       </section>
 
@@ -72,7 +73,7 @@ export default function Home() {
       {/* THE MODERN HUSTLER: different paths, same mindset */}
       <section className="hustler">
         <div className="hustler-img reveal">
-          <img src="/images/community-7.webp" alt="The Modern Hustler: composed, confident, in Cash Culture" loading="lazy" />
+          <Image src="/images/community-7.webp" alt="The Modern Hustler: composed, confident, in Cash Culture" width={900} height={1200} sizes="(max-width: 1000px) 100vw, 50vw" />
         </div>
         <div className="hustler-text">
           <p className="rule-kicker reveal">The Modern Hustler</p>
@@ -91,7 +92,7 @@ export default function Home() {
       {/* LUXURY: the elevated line, introduced on its own */}
       <section className="luxury" id="luxury">
         <div className="luxury-img reveal">
-          <img src="/images/trench-camel.webp" alt="The Cash Culture camel trench coat" loading="lazy" />
+          <Image src="/images/trench-camel.webp" alt="The Cash Culture camel trench coat" width={792} height={880} sizes="(max-width: 1000px) 100vw, 50vw" />
         </div>
         <div className="luxury-text">
           <p className="rule-kicker reveal">Luxury</p>
@@ -103,7 +104,7 @@ export default function Home() {
             Trench coats, woven tapestry, silk. Made in small runs, with intent. Pieces you keep.
           </p>
           <ul className="luxury-pieces reveal">
-            <li><Link href="/luxury#trench">Trench Coats</Link></li>
+            <li><Link href="/luxury/trench-coat">Trench Coats</Link></li>
             <li><Link href="/luxury#tapestry">Tapestry Hoodie</Link></li>
             <li><Link href="/luxury#beanies">Silk Beanies</Link></li>
           </ul>
@@ -161,7 +162,7 @@ export default function Home() {
         <div className="family-grid">
           {FAMILY.map((m) => (
             <Link className="family-card" href="/family#family" key={m.name}>
-              <div className="family-img"><img src={m.image} alt={m.name} loading="lazy" /></div>
+              <div className="family-img"><Image src={m.image} alt={m.name} width={600} height={800} sizes="(max-width: 1000px) 50vw, 20vw" /></div>
               <p className="family-name">{m.name}</p>
               {m.niche && <p className="family-niche">{m.niche}</p>}
             </Link>
@@ -183,7 +184,7 @@ export default function Home() {
         </ul>
         <div className="home-gallery">
           {COMMUNITY.map((c) => (
-            <div className="home-gallery-item" key={c.src}><img src={c.src} alt={c.alt} loading="lazy" /></div>
+            <div className="home-gallery-item" key={c.src}><Image src={c.src} alt={c.alt} width={900} height={1200} sizes="(max-width: 1000px) 50vw, 25vw" /></div>
           ))}
         </div>
       </section>

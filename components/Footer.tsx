@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
 
@@ -45,7 +46,7 @@ export default function Footer() {
           <p>For the ones who build &middot; @cashcultureluxury</p>
         </div>
         <div className="footer-logo-center">
-          <img src="/images/home-img-21.webp" alt="Cash Culture logo" width={240} height={160} />
+          <Image src="/images/home-img-21.webp" alt="Cash Culture logo" width={200} height={200} />
         </div>
         <div className="footer-email-wrap">
           <p>Drops, stories &amp; events first</p>
@@ -71,6 +72,7 @@ export default function Footer() {
           <Link href="/culture">The Culture</Link>
           <Link href="/about">About</Link>
           <Link href="/family">Family</Link>
+          <Link href="/stories">Stories</Link>
           <Link href="/privacy">Privacy Policy</Link>
           <Link href="/terms">Terms of Service</Link>
         </div>

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import "../styles/family.css";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -57,7 +58,7 @@ export default function FamilyPage() {
           </div>
         </div>
         <div className="fam-hero-photo">
-          <img src={HERO_IMAGE} alt="A member of the Cash Culture Family" fetchPriority="high" />
+          <Image src={HERO_IMAGE} alt="A member of the Cash Culture Family" fill sizes="(max-width: 1000px) 100vw, 50vw" preload />
         </div>
       </section>
 
@@ -76,7 +77,7 @@ export default function FamilyPage() {
         <ul className="roster">
           {FAMILY.map((m) => (
             <li className="member" key={m.name}>
-              <div className="member-img"><img src={m.image} alt={m.name} loading="lazy" /></div>
+              <div className="member-img"><Image src={m.image} alt={m.name} width={800} height={1000} sizes="(max-width: 1000px) 100vw, 33vw" /></div>
               <div className="member-body">
                 <h3 className="member-name">{m.name}</h3>
                 {(m.niche || m.location) && (

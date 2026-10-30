@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
 import { useCart } from "./CartContext";
@@ -48,12 +49,14 @@ export default function ProductOrder({ product }: { product: EssentialsItem }) {
   return (
     <div className="featured">
       <div className="featured-imgs">
-        <img src={view} alt={color ? `${name} - ${color.name}` : name} className="main-img" />
+        <Image src={view} alt={color ? `${name} - ${color.name}` : name} className="main-img" width={800} height={1000} sizes="(max-width: 1000px) 100vw, 50vw" />
         {galleryImgs.length > 1 && (
           <div className="thumb-strip">
             {galleryImgs.map((img) => (
-              <img
+              <Image
                 key={img}
+                width={60}
+                height={80}
                 src={img}
                 className={`thumb${img === view ? " active" : ""}`}
                 onClick={() => setView(img)}

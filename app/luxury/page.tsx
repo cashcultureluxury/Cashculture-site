@@ -1,5 +1,7 @@
+import Image from "next/image";
 import "../styles/luxury.css";
 import type { Metadata } from "next";
+import Link from "next/link";
 import ProductCard from "@/components/ProductCard";
 import FeaturedTrench from "@/components/FeaturedTrench";
 import FeaturedTapestry from "@/components/FeaturedTapestry";
@@ -52,7 +54,7 @@ export default function LuxuryPage() {
       <div className="gold-divider" />
 
       <div className="ad-banner">
-        <img src="/images/luxury-img-2.webp" alt="Cash Culture Luxury trench coats" />
+        <Image src="/images/luxury-img-2.webp" alt="Cash Culture Luxury trench coats" width={1024} height={1536} sizes="100vw" />
       </div>
 
       <div className="gold-divider" />
@@ -62,7 +64,7 @@ export default function LuxuryPage() {
         <div className="section-header">
           <p className="section-label">01 / Outerwear</p>
           <h2 className="section-title">LUXURY TRENCH COATS</h2>
-          <p className="section-sub">Refined style. Timeless warmth. Limited pieces.</p>
+          <p className="section-sub">Refined style. Timeless warmth. Limited pieces. <Link href="/luxury/trench-coat" className="lux-back">Read the story &#x2192;</Link></p>
         </div>
       </section>
       <FeaturedTrench />

@@ -69,7 +69,7 @@
 
 /* Image band */
 .cc-story .image-band { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
-.cc-story .image-band img { width: 100%; aspect-ratio: 3/4; object-fit: cover; display: block; }
+.cc-story .image-band img { width: 100%; height: auto; aspect-ratio: 3/4; object-fit: cover; display: block; }
 
 /* CTA */
 .cc-story .cta { padding: 120px 64px; text-align: center; border-top: 1px solid rgba(201,168,76,0.12); background: radial-gradient(ellipse at center, rgba(201,168,76,0.07) 0%, transparent 65%); }
@@ -78,6 +78,17 @@
 .cc-story .cta p { font-size: 0.84rem; line-height: 1.9; color: rgba(255,255,255,0.62); max-width: 560px; margin: 0 auto 34px; }
 .cc-story .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 .cc-story .btn-gold, .cc-story .btn-outline { text-decoration: none; display: inline-block; }
+
+/* Story cards (Stories page): image on top, card text below */
+.cc-story .story-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.cc-story .story-card { display: block; text-decoration: none; }
+.cc-story .story-card-img { position: relative; aspect-ratio: 4/5; overflow: hidden; margin-bottom: 20px; border: 1px solid var(--line); }
+.cc-story .story-card-img img { object-fit: cover; transition: transform 0.6s; }
+.cc-story .story-card:hover .story-card-img img { transform: scale(1.03); }
+.cc-story .story-card .card-label { font-size: 0.56rem; letter-spacing: 3px; text-transform: uppercase; color: var(--red-light); margin-bottom: 10px; }
+.cc-story .story-card .card-title { font-family: var(--font-serif); font-size: 1.3rem; color: var(--cream); margin-bottom: 10px; }
+.cc-story .story-card p { font-size: 0.78rem; line-height: 1.85; color: rgba(255,255,255,0.6); }
+.cc-story .story-card-more { display: inline-block; margin-top: 14px; font-size: 0.6rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); }
 
 /* Anchor jumps land below the fixed nav */
 .cc-story [id] { scroll-margin-top: 90px; }
@@ -89,6 +100,7 @@
   .cc-story .rooms { margin-top: 64px; }
   .cc-story .rooms-grid { grid-template-columns: repeat(2, 1fr); }
   .cc-story .cards { grid-template-columns: 1fr; }
+  .cc-story .story-grid { grid-template-columns: 1fr; gap: 44px; }
   .cc-story .callout { padding: 30px 24px; }
   .cc-story .image-band { grid-template-columns: repeat(2, 1fr); }
   .cc-story .cta { padding: 80px 22px; }
