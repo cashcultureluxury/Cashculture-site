@@ -30,9 +30,7 @@
 .cc-home .product-card:hover .product-add { opacity: 1; }
 .cc-home .product-name { font-size: 0.68rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 5px; }
 .cc-home .product-price { font-size: 0.78rem; color: var(--gold); font-weight: 600; margin-bottom: 7px; }
-.cc-home .stars { display: flex; align-items: center; gap: 2px; }
 .cc-home .star { color: var(--gold); font-size: 0.65rem; }
-.cc-home .reviews { font-size: 0.58rem; color: var(--muted); margin-left: 5px; }
 .cc-home .out-of-stock { position: absolute; inset: 0; background: rgba(0,0,0,0.55); display: flex; align-items: center; justify-content: center; z-index: 2; }
 .cc-home .out-of-stock span { font-size: 0.55rem; letter-spacing: 3px; color: #C4A896; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.4); padding: 6px 12px; }
 
@@ -128,7 +126,7 @@
   .cc-home .hero { padding: 96px 22px 64px; min-height: 88vh; }
   .cc-home .hero-img-wrap { display: none; }
   .cc-home .products-grid { grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); }
-  .cc-home .home-gallery { grid-template-columns: repeat(2, 1fr); }
+  .cc-home .home-gallery { grid-template-columns: repeat(3, 1fr); gap: 8px; }
   .cc-home .philosophy { grid-template-columns: 1fr; gap: 44px; }
   .cc-home .hustler { grid-template-columns: 1fr; }
   .cc-home .hustler-img { min-height: 420px; }

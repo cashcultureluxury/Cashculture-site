@@ -6,11 +6,9 @@ import Link from "next/link";
 import { useCart } from "./CartContext";
 import type { EssentialsItem } from "@/data/essentials";
 
-const STARS = "★★★★★";
-
 const DEFAULT_SIZES = ["S", "M", "L", "XL", "2XL"];
 
-export default function EssentialsCard({ id, image, name, price, reviews, badge, sizes = DEFAULT_SIZES, colors }: EssentialsItem) {
+export default function EssentialsCard({ id, image, name, price, badge, sizes = DEFAULT_SIZES, colors }: EssentialsItem) {
   const { add } = useCart();
   const hasSizes = sizes.length > 0;
   const hasColors = !!colors && colors.length > 0;
@@ -72,7 +70,6 @@ export default function EssentialsCard({ id, image, name, price, reviews, badge,
         >
           {hasSizes && !size ? "Select a Size" : "Add to Cart"}
         </button>
-        <div className="stars"><span>{STARS}</span><span className="reviews">({reviews})</span></div>
       </div>
     </div>
   );

@@ -7,14 +7,13 @@ import { useCart } from "./CartContext";
 import { shopifyUrl } from "@/data/shopify";
 import type { EssentialsItem } from "@/data/essentials";
 
-const STARS = "★★★★★";
 const DEFAULT_SIZES = ["S", "M", "L", "XL", "2XL"];
 
 // Full product / order page body for an Essentials item. Reuses the .cc-lux
 // .featured layout. Lets the customer pick a colorway (swaps the image) and
 // size, choose a quantity, add to cart, or buy now (straight to Shopify).
 export default function ProductOrder({ product }: { product: EssentialsItem }) {
-  const { id, name, price, image, reviews, category, sizes = DEFAULT_SIZES, colors, gallery } = product;
+  const { id, name, price, image, category, sizes = DEFAULT_SIZES, colors, gallery } = product;
 
   const { add } = useCart();
   // "Buy Now" jumps straight to this product on Shopify; "Add to Cart" collects
@@ -70,7 +69,6 @@ export default function ProductOrder({ product }: { product: EssentialsItem }) {
         <p className="feat-tag">Cash Culture Essentials</p>
         <h2 className="feat-title">{name}</h2>
         <p className="feat-price">${price.toFixed(2)}</p>
-        <div className="stars" style={{ marginBottom: 18 }}><span>{STARS}</span><span className="reviews">({reviews})</span></div>
         <p className="feat-desc">Premium Cash Culture {category.toLowerCase()}, made to order and shipped worldwide. Bold graphics, honest prices, no compromise on quality.</p>
 
         {hasColors && (

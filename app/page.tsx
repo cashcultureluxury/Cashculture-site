@@ -19,7 +19,6 @@ const BEST_SELLERS = [...ESSENTIALS]
     image: p.image,
     name: p.name,
     price: `$${p.price.toFixed(2)}`,
-    reviews: p.reviews,
     badge: p.badge,
   }));
 
@@ -30,6 +29,16 @@ const COMMUNITY = [
   { src: "/images/community-2.webp", alt: "Out for the night in a Cash Culture tee" },
   { src: "/images/community-15.webp", alt: "City nights in Cash Culture" },
   { src: "/images/community-9.webp", alt: "The team in Cash Culture" },
+  { src: "/images/community-11.webp", alt: "Big Ben tapestry hoodie at the show" },
+  { src: "/images/community-1.webp", alt: "The youngest member of the culture" },
+  { src: "/images/community-4.webp", alt: "Cash Culture tee on the steps" },
+  { src: "/images/community-16.webp", alt: "Cash Culture tee in the alley light" },
+  { src: "/images/community-6.webp", alt: "Tapestry hoodie by the car" },
+  { src: "/images/community-3.webp", alt: "Cash Culture hoodie mirror selfie" },
+  { src: "/images/community-7.webp", alt: "Cash Culture sweatshirt on the waterfront" },
+  { src: "/images/community-12.webp", alt: "Tapestry hoodie mirror selfie" },
+  { src: "/images/community-5.webp", alt: "Cash Culture bear hoodie, back print" },
+  { src: "/images/community-14.webp", alt: "CC beanie close up" },
 ];
 
 export default function Home() {
@@ -184,7 +193,7 @@ export default function Home() {
         </ul>
         <div className="home-gallery">
           {COMMUNITY.map((c) => (
-            <div className="home-gallery-item" key={c.src}><Image src={c.src} alt={c.alt} width={900} height={1200} sizes="(max-width: 1000px) 50vw, 25vw" /></div>
+            <div className="home-gallery-item" key={c.src}><Image src={c.src} alt={c.alt} width={900} height={1200} sizes="(max-width: 1000px) 33vw, 20vw" /></div>
           ))}
         </div>
       </section>

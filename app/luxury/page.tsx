@@ -15,10 +15,10 @@ export const metadata: Metadata = {
 };
 
 const BEANIES = [
-  { id: "beanie-black-yellow", image: "/images/beanie-black-yellow.webp", name: "CC Beanie, Black and Yellow", price: 30, reviews: "44", badge: "In Stock", colors: [{ hex: "#1a1a1a", title: "Black" }, { hex: "#eab308", title: "Yellow" }] },
-  { id: "beanie-white-red", image: "/images/home-img-6.webp", name: "CC Beanie, White and Red", price: 30, reviews: "38", badge: "In Stock", colors: [{ hex: "#f5f5f5", title: "White", border: true }, { hex: "#8b0000", title: "Red" }] },
-  { id: "beanie-black-purple", image: "/images/luxury-img-14.webp", name: "CC Beanie, Black and Purple", price: 30, reviews: "51", badge: "In Stock", colors: [{ hex: "#1a1a1a", title: "Black" }, { hex: "#4b0082", title: "Purple" }] },
-  { id: "beanie-black-green", image: "/images/beanie-black-green.webp", name: "CC Beanie, Black and Green", price: 30, reviews: "29", badge: "Limited", badgeLimited: true, colors: [{ hex: "#1a1a1a", title: "Black" }, { hex: "#39ff14", title: "Neon Green" }] },
+  { id: "beanie-black-yellow", image: "/images/beanie-black-yellow.webp", name: "CC Beanie, Black and Yellow", price: 30, badge: "In Stock", colors: [{ hex: "#1a1a1a", title: "Black" }, { hex: "#eab308", title: "Yellow" }] },
+  { id: "beanie-white-red", image: "/images/home-img-6.webp", name: "CC Beanie, White and Red", price: 30, badge: "In Stock", colors: [{ hex: "#f5f5f5", title: "White", border: true }, { hex: "#8b0000", title: "Red" }] },
+  { id: "beanie-black-purple", image: "/images/luxury-img-14.webp", name: "CC Beanie, Black and Purple", price: 30, badge: "In Stock", colors: [{ hex: "#1a1a1a", title: "Black" }, { hex: "#4b0082", title: "Purple" }] },
+  { id: "beanie-black-green", image: "/images/beanie-black-green.webp", name: "CC Beanie, Black and Green", price: 30, badge: "Limited", badgeLimited: true, colors: [{ hex: "#1a1a1a", title: "Black" }, { hex: "#39ff14", title: "Neon Green" }] },
 ] as const;
 
 const PILLARS = [
@@ -120,7 +120,6 @@ export default function LuxuryPage() {
               <span className="product-badge">Bundle Deal</span>
               <p className="product-name">CC Beanie Bundle, Pick Any 2</p>
               <p className="product-price">$55.00 <span style={{ fontSize: "0.7rem", color: "var(--muted)", fontWeight: 400 }}>save $5</span></p>
-              <div className="stars"><span>★★★★★</span><span className="reviews">(Bundle)</span></div>
             </div>
           </div>
         </div>

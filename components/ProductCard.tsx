@@ -2,8 +2,6 @@
 
 import Image from "next/image";
 
-const STARS = "★★★★★";
-
 type Color = { hex: string; title: string; border?: boolean };
 
 type HomeProps = {
@@ -11,7 +9,6 @@ type HomeProps = {
   image: string;
   name: string;
   price: string; // display string, e.g. "$30.00" or "Sold Out"
-  reviews: string;
   badge?: string;
   soldOut?: boolean;
   href: string; // essentials link out to Wix
@@ -23,7 +20,6 @@ type LuxuryProps = {
   image: string;
   name: string;
   price: number; // numeric USD for the cart
-  reviews: string;
   badge?: string;
   badgeLimited?: boolean;
   colors?: Color[];
@@ -33,7 +29,7 @@ type Props = HomeProps | LuxuryProps;
 
 export default function ProductCard(props: Props) {
   if (props.variant === "home") {
-    const { image, name, price, reviews, badge, soldOut, href } = props;
+    const { image, name, price, badge, soldOut, href } = props;
     const external = /^https?:\/\//.test(href);
     return (
       <a className="product-card" href={href} {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
@@ -48,12 +44,11 @@ export default function ProductCard(props: Props) {
         </div>
         <p className="product-name">{name}</p>
         <p className="product-price" style={soldOut ? { color: "var(--muted)" } : undefined}>{price}</p>
-        <div className="stars"><span className="star">{STARS}</span> <span className="reviews">({reviews})</span></div>
       </a>
     );
   }
 
-  const { image, name, price, reviews, badge, badgeLimited, colors } = props;
+  const { image, name, price, badge, badgeLimited, colors } = props;
   return (
     <div className="product-card">
       <div className="product-img">
@@ -78,7 +73,6 @@ export default function ProductCard(props: Props) {
             ))}
           </div>
         )}
-        <div className="stars"><span>{STARS}</span><span className="reviews">({reviews})</span></div>
       </div>
     </div>
   );
