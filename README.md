@@ -26,10 +26,9 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 ## Order fulfillment
 
-Paid orders are routed Stripe → Wix → Tapstitch. The one-time setup (Stripe
-webhook + Wix bridge env vars) and a troubleshooting guide live in
-[`FULFILLMENT.md`](FULFILLMENT.md). Start there if orders charge in Stripe but
-never reach Tapstitch.
+Checkout, payment, customer accounts, and fulfillment all run on Shopify. The
+site's "Buy" and cart buttons hand off to the Shopify store (see
+`data/shopify.ts` and `app/api/shopify-cart`).
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 

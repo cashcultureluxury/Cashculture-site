@@ -12,14 +12,14 @@ export default function PrivacyPage() {
     <main className="cc-page">
       <p className="eyebrow">Cash Culture, LLC</p>
       <h1>Privacy Policy</h1>
-      <p className="updated">Last updated: June 2026</p>
+      <p className="updated">Last updated: October 2026</p>
 
       <p className="lead">This policy explains what information we collect when you visit cashcultureluxury.com, why we collect it, and the choices you have.</p>
 
       <h2>Information We Collect</h2>
       <ul>
         <li>Contact details you give us: name, email, phone, and shipping address when you subscribe, apply to join the Cash Culture Family (our ambassador program), or place an order.</li>
-        <li>Order details processed securely through our payment provider, Stripe. We never see or store your full card number.</li>
+        <li>Order details processed securely through our store platform, Shopify. We never see or store your full card number.</li>
         <li>Basic usage data such as pages viewed, collected to keep the site fast and secure.</li>
       </ul>
 
@@ -31,7 +31,7 @@ export default function PrivacyPage() {
       </ul>
 
       <h2>Sharing</h2>
-      <p>We share information only with the service providers that run the store, including Stripe for payments, Beehiiv for email, and Airtable for application records. We do not sell your personal information.</p>
+      <p>We share information only with the service providers that run the store, including Shopify for checkout and payments, Beehiiv for email, and Airtable for application records. We do not sell your personal information.</p>
 
       <h2>Your Choices</h2>
       <p>You can ask us to access, correct, or delete your information, or opt out of marketing, by emailing <a href="mailto:cashculturebrand@gmail.com">cashculturebrand@gmail.com</a>.</p>
