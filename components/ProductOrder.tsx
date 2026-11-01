@@ -14,7 +14,7 @@ const DEFAULT_SIZES = ["S", "M", "L", "XL", "2XL"];
 // .featured layout. Lets the customer pick a colorway (swaps the image) and
 // size, choose a quantity, add to cart, or buy now (straight to Shopify checkout).
 export default function ProductOrder({ product }: { product: EssentialsItem }) {
-  const { id, name, price, image, category, sizes = DEFAULT_SIZES, colors, gallery } = product;
+  const { id, name, price, image, category, sizes = DEFAULT_SIZES, colors, gallery, fabric } = product;
 
   const { add } = useCart();
   // "Buy Now" goes straight to Shopify checkout for this item; "Add to Cart"
@@ -82,6 +82,7 @@ export default function ProductOrder({ product }: { product: EssentialsItem }) {
         <p className="feat-tag">Cash Culture Essentials</p>
         <h2 className="feat-title">{name}</h2>
         <p className="feat-price">${price.toFixed(2)}</p>
+        {fabric && <p className="feat-tag" style={{ marginTop: -4 }}>{fabric}</p>}
         <p className="feat-desc">Premium Cash Culture {category.toLowerCase()}, made to order and shipped worldwide. Bold graphics, honest prices, no compromise on quality.</p>
 
         {hasColors && (

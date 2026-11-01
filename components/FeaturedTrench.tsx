@@ -61,7 +61,7 @@ export default function FeaturedTrench() {
       <div className="featured-content">
         <p className="feat-tag">Cash Culture Luxury, Limited Collection</p>
         <h2 className="feat-title">CC LUXURY<br />TRENCH COAT</h2>
-        <p className="feat-price">$249.00</p>
+        <p className="feat-price">$250.00</p>
         <p className="feat-desc">A statement piece built for those who move with purpose. Premium wool-blend construction with a quilted interior lining, red accent stitching, and an embroidered Cash Culture Luxury patch. Every detail tells the story.</p>
         <div className="feat-details">
           {DETAILS.map((d) => (
