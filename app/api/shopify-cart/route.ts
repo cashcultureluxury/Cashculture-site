@@ -9,7 +9,7 @@
 // which drops the customer on Shopify checkout with the whole cart.
 
 import { NextResponse } from "next/server";
-import { SHOPIFY_DOMAIN, SHOPIFY_HANDLES, SHOPIFY_STORE_URL } from "@/data/shopify";
+import { SHOPIFY_DOMAIN, SHOPIFY_HANDLES } from "@/data/shopify";
 
 export const runtime = "nodejs";
 
@@ -67,8 +67,9 @@ export async function POST(req: Request) {
 
   const parts = resolved.filter((p): p is string => Boolean(p));
   if (parts.length === 0) {
-    // Nothing resolvable — send them to the store rather than a broken checkout.
-    return NextResponse.json({ url: SHOPIFY_STORE_URL });
+    // Nothing resolvable: let the site say so instead of dropping the shopper
+    // on the Shopify storefront.
+    return NextResponse.json({ error: "No checkout-ready items" }, { status: 422 });
   }
   return NextResponse.json({ url: `https://${SHOPIFY_DOMAIN}/cart/${parts.join(",")}` });
 }

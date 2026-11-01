@@ -1,6 +1,5 @@
 import type { NextConfig } from "next";
 import path from "node:path";
-import { SHOPIFY_ACCOUNT_URL } from "./data/shopify";
 
 const nextConfig: NextConfig = {
   // Pin the workspace root so Turbopack ignores the stray lockfile in the home
@@ -13,8 +12,8 @@ const nextConfig: NextConfig = {
       // The ambassador program is now the Cash Culture Family. Keep old links
       // (bios, emails, the promo popup in cached pages) working.
       { source: "/ambassadors", destination: "/family", permanent: true },
-      // Checkout and customer accounts moved to Shopify; send old links there.
-      { source: "/account", destination: SHOPIFY_ACCOUNT_URL, permanent: false },
+      // Site accounts were retired; Shopify only handles payment and orders.
+      { source: "/account", destination: "/", permanent: false },
       { source: "/checkout/success", destination: "/", permanent: false },
     ];
   },

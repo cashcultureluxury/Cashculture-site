@@ -4,27 +4,22 @@ import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
 import { useCart } from "./CartContext";
-import { SHOPIFY_STORE_URL } from "@/data/shopify";
+import { CHECKOUT_ERROR, goToCheckout } from "@/lib/checkout";
 
 const fmt = (n: number) => `$${n.toFixed(2)}`;
 
 export default function CartDrawer() {
   const { items, subtotal, isOpen, confirm, closeCart, remove, setQty } = useCart();
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   async function checkout() {
     if (items.length === 0) return;
     setLoading(true);
-    try {
-      const res = await fetch("/api/shopify-cart", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ items }),
-      });
-      const data = await res.json().catch(() => ({}));
-      window.location.href = data.url || SHOPIFY_STORE_URL;
-    } catch {
-      window.location.href = SHOPIFY_STORE_URL;
+    setError("");
+    if (!(await goToCheckout(items))) {
+      setLoading(false);
+      setError(CHECKOUT_ERROR);
     }
   }
 
@@ -80,6 +75,7 @@ export default function CartDrawer() {
           <button className="cart-checkout" onClick={checkout} disabled={items.length === 0 || loading}>
             {loading ? "Preparing checkout…" : "Checkout on Shopify"}
           </button>
+          {error && <p className="cart-note" role="alert">{error}</p>}
           {items.length > 0 && (
             <Link className="cart-view-link" href="/cart" onClick={closeCart}>View full cart &rarr;</Link>
           )}
