@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { SHOPIFY_STORE_URL } from "@/data/shopify";
+import { CHECKOUT_ERROR, goToCheckout } from "@/lib/checkout";
 
 // One image per colorway. Add the matching files to public/images/.
 const COLORS = [
@@ -26,22 +26,17 @@ export default function FeaturedTrench() {
   const active = COLORS.find((c) => c.name === color) ?? COLORS[0];
   const [size, setSize] = useState("M");
   const [ordering, setOrdering] = useState(false);
+  const [error, setError] = useState("");
 
   // Order Now -> resolve the chosen color/size to its Shopify variant and jump
   // straight to Shopify checkout (customer pays + enters shipping; you fulfill
-  // and ship by hand). Falls back to the store home if the product isn't set up.
+  // and ship by hand). If that fails, stay here and say so.
   async function orderNow() {
     setOrdering(true);
-    try {
-      const res = await fetch("/api/shopify-cart", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ items: [{ id: "cc-trench", size, color, qty: 1 }] }),
-      });
-      const data = (await res.json().catch(() => ({}))) as { url?: string };
-      window.location.href = data.url || SHOPIFY_STORE_URL;
-    } catch {
-      window.location.href = SHOPIFY_STORE_URL;
+    setError("");
+    if (!(await goToCheckout([{ id: "cc-trench", size, color, qty: 1 }]))) {
+      setOrdering(false);
+      setError(CHECKOUT_ERROR);
     }
   }
 
@@ -104,6 +99,7 @@ export default function FeaturedTrench() {
           </button>
           <a className="btn-outline" href="https://www.instagram.com/cashcultureluxury" target="_blank" rel="noopener noreferrer">Questions? DM Us</a>
         </div>
+        {error && <p className="cart-note" role="alert" style={{ marginTop: 10 }}>{error}</p>}
       </div>
     </div>
   );

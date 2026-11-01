@@ -4,21 +4,22 @@ import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
 import { useCart } from "./CartContext";
-import { shopifyUrl } from "@/data/shopify";
+import { SHOPIFY_HANDLES } from "@/data/shopify";
+import { CHECKOUT_ERROR, goToCheckout } from "@/lib/checkout";
 import type { EssentialsItem } from "@/data/essentials";
 
 const DEFAULT_SIZES = ["S", "M", "L", "XL", "2XL"];
 
 // Full product / order page body for an Essentials item. Reuses the .cc-lux
 // .featured layout. Lets the customer pick a colorway (swaps the image) and
-// size, choose a quantity, add to cart, or buy now (straight to Shopify).
+// size, choose a quantity, add to cart, or buy now (straight to Shopify checkout).
 export default function ProductOrder({ product }: { product: EssentialsItem }) {
   const { id, name, price, image, category, sizes = DEFAULT_SIZES, colors, gallery } = product;
 
   const { add } = useCart();
-  // "Buy Now" jumps straight to this product on Shopify; "Add to Cart" collects
-  // items on-site and checks the whole cart out on Shopify (see /api/shopify-cart).
-  const buyUrl = shopifyUrl(id);
+  // "Buy Now" goes straight to Shopify checkout for this item; "Add to Cart"
+  // collects items on-site. Both check out via /api/shopify-cart.
+  const canBuy = Boolean(SHOPIFY_HANDLES[id]);
 
   const hasSizes = sizes.length > 0;
   const hasColors = !!colors && colors.length > 0;
@@ -38,6 +39,18 @@ export default function ProductOrder({ product }: { product: EssentialsItem }) {
   const pickColor = (c: NonNullable<typeof color>) => {
     setColor(c);
     setView(c.image);
+  };
+
+  const [buying, setBuying] = useState(false);
+  const [error, setError] = useState("");
+  const buyNow = async () => {
+    if (needsSize) return;
+    setBuying(true);
+    setError("");
+    if (!(await goToCheckout([{ id, size: size || undefined, color: color?.name, qty }]))) {
+      setBuying(false);
+      setError(CHECKOUT_ERROR);
+    }
   };
 
   const addToCart = () => {
@@ -115,14 +128,15 @@ export default function ProductOrder({ product }: { product: EssentialsItem }) {
           <button className="btn-gold" type="button" onClick={addToCart} disabled={needsSize}>
             {needsSize ? "Select a Size" : "Add to Cart"}
           </button>
-          <a
-            className="btn-outline"
-            href={buyUrl ?? "/essentials"}
-            {...(buyUrl ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-          >
-            {buyUrl ? "Buy Now" : "Coming Soon"}
-          </a>
+          {canBuy ? (
+            <button className="btn-outline" type="button" onClick={buyNow} disabled={needsSize || buying}>
+              {buying ? "Loading…" : "Buy Now"}
+            </button>
+          ) : (
+            <Link className="btn-outline" href="/essentials">Coming Soon</Link>
+          )}
         </div>
+        {error && <p className="cart-note" role="alert" style={{ marginTop: 10 }}>{error}</p>}
         <p className="cart-note" style={{ marginTop: 10 }}>Secure checkout on Shopify. Final size/color confirmed at checkout.</p>
 
         <Link href="/essentials" className="lux-back" style={{ marginTop: 22, display: "inline-block" }}>&larr; Back to Essentials</Link>
