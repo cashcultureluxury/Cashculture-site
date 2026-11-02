@@ -41,7 +41,7 @@ export const SHOPIFY_HANDLES: Record<string, string> = {
   "ess-tee-sza": "square-patch-monkey-washed-drop-shoulder-t-shirt-250-gsm", // -> SZA Big Boy Tee
   "ess-tee-worldwide": "essential-cotton-t-shirt-68", // -> Black Worldwide Tee
   "ess-tee-worldwidewhite": "essential-cotton-t-shirt-67", // -> White Worldwide Tee
-  "ess-tee-execte": "essential-cotton-t-shirt-25", // -> Execte Tee
+  "ess-tee-execute": "essential-cotton-t-shirt-25", // -> Execute Tee
   "ess-tee-dcmo": "dcmo-tee", // -> DCMO Tee
   "ess-tee-cashtoon": "essential-cotton-t-shirt-71", // -> Cash Toon Tee
   "ess-tee-cashrebel": "essential-cotton-t-shirt-70", // -> Cash Rebel Tee
