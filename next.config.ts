@@ -7,6 +7,10 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: path.resolve(__dirname),
   },
+  // Newer Essentials photos load straight from the store's Shopify image CDN.
+  images: {
+    remotePatterns: [{ protocol: "https", hostname: "cdn.shopify.com", pathname: "/s/files/1/0753/5103/1877/**" }],
+  },
   async redirects() {
     return [
       // The ambassador program is now the Cash Culture Family. Keep old links

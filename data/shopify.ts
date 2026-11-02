@@ -23,6 +23,7 @@ export const SHOPIFY_HANDLES: Record<string, string> = {
   "ess-hoodie-bluelane": "create-your-own-line-hoodie", // -> Your Own Lane Hoodie
   "ess-hoodie-butterfly": "vintage-wash-frayed-fleece-hoodie-360-gsm-19", // -> SZA Hoodie
   "ess-hoodie-artwar195": "heavyweight-pure-cotton-handcrafted-monkey-wash-drop-shoulder-oversized-hoodie-12", // -> $1.95 Cash Hoodie
+  "ess-hoodie-madness": "madness-hoodie", // -> Madness Hoodie
   // Tees
   "ess-tee-energy": "essential-cotton-t-shirt-24", // -> LDR Cash Tee
   "ess-tee-ambition": "ambition-tee", // -> Ambition Tee
@@ -39,8 +40,15 @@ export const SHOPIFY_HANDLES: Record<string, string> = {
   "ess-tee-soccerjersey": "oversized-mesh-v-neck-soccer-jersey-28", // -> Cash Soccer Jersey
   "ess-tee-sza": "square-patch-monkey-washed-drop-shoulder-t-shirt-250-gsm", // -> SZA Big Boy Tee
   "ess-tee-worldwide": "essential-cotton-t-shirt-68", // -> Black Worldwide Tee
+  "ess-tee-worldwidewhite": "essential-cotton-t-shirt-67", // -> White Worldwide Tee
+  "ess-tee-execte": "essential-cotton-t-shirt-25", // -> Execte Tee
+  "ess-tee-dcmo": "dcmo-tee", // -> DCMO Tee
+  "ess-tee-cashtoon": "essential-cotton-t-shirt-71", // -> Cash Toon Tee
+  "ess-tee-cashrebel": "essential-cotton-t-shirt-70", // -> Cash Rebel Tee
   // Long sleeve / bottoms / tanks
   "ess-ls-hope": "streetwear-unisex-solid-color-fleece-pullover", // -> Hope Long Sleeve
+  "ess-ls-hopesweatshirt": "streetwear-unisex-solid-color-fleece-pullover-19", // -> Hope Sweatshirt
+  "ess-ls-desire": "classic-sweater-300-gsm", // -> Desire Long Sleeve
   "ess-shorts-samuraiblack": "streetwear-unisex-heavyweight-earth-tone-loose-fit-fog-100-cotton-shorts-55", // -> Black Samurai Shorts
   "ess-shorts-samuraiwhite": "streetwear-unisex-heavyweight-earth-tone-loose-fit-fog-100-cotton-shorts-48", // -> White Samurai Shorts
   "ess-shorts-luxshort": "snow-washed-raw-edge-drawstring-shorts", // -> Cash Short Shorts
