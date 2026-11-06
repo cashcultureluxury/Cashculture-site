@@ -3,7 +3,7 @@ import "../styles/story.css";
 import type { Metadata } from "next";
 import Link from "next/link";
 import CodeSection from "@/components/CodeSection";
-import { CORE_IDEA, HUSTLER_IS, HUSTLER_IS_NOT, HUSTLER_PATHS, HUSTLER_ROOMS, HUSTLER_TRAITS, MANTRA, STORY_MAILTO } from "@/data/brand";
+import { CORE_IDEA, HUSTLER_IS, HUSTLER_PATHS, HUSTLER_ROOMS, HUSTLER_TRAITS, MANTRA, STORY_MAILTO } from "@/data/brand";
 
 export const metadata: Metadata = {
   title: "The Culture",
@@ -99,17 +99,11 @@ export default function CulturePage() {
           </ul>
         </div>
 
-        <div className="split split-lists">
+        <div className="split-lists">
           <div className="list-group">
             <p className="list-title">What they care about</p>
             <ul className="tag-list">
               {HUSTLER_IS.map((h) => <li key={h}>{h}</li>)}
-            </ul>
-          </div>
-          <div className="list-group">
-            <p className="list-title">What the culture leaves out</p>
-            <ul className="tag-list muted">
-              {HUSTLER_IS_NOT.map((h) => <li key={h}>{h}</li>)}
             </ul>
           </div>
         </div>
