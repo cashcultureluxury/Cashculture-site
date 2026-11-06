@@ -72,7 +72,6 @@ export default function Footer() {
           <Link href="/culture">The Culture</Link>
           <Link href="/about">About</Link>
           <Link href="/family">Family</Link>
-          <Link href="/stories">Stories</Link>
           <Link href="/privacy">Privacy Policy</Link>
           <Link href="/terms">Terms of Service</Link>
         </div>
