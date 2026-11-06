@@ -16,7 +16,6 @@ const SHOP = [
 const LINKS = [
   { label: "The Culture", href: "/culture" },
   { label: "Family", href: "/family" },
-  { label: "Stories", href: "/stories" },
   { label: "About", href: "/about" },
 ];
 

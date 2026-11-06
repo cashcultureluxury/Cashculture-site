@@ -11,7 +11,8 @@ type HomeProps = {
   price: string; // display string, e.g. "$30.00" or "Sold Out"
   badge?: string;
   soldOut?: boolean;
-  href: string; // essentials link out to Wix
+  href: string;
+  colorCount?: number; // shows "N colors" under the price when > 1
 };
 
 type LuxuryProps = {
@@ -29,7 +30,7 @@ type Props = HomeProps | LuxuryProps;
 
 export default function ProductCard(props: Props) {
   if (props.variant === "home") {
-    const { image, name, price, badge, soldOut, href } = props;
+    const { image, name, price, badge, soldOut, href, colorCount } = props;
     const external = /^https?:\/\//.test(href);
     return (
       <a className="product-card" href={href} {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
@@ -44,6 +45,7 @@ export default function ProductCard(props: Props) {
         </div>
         <p className="product-name">{name}</p>
         <p className="product-price" style={soldOut ? { color: "var(--muted)" } : undefined}>{price}</p>
+        {colorCount && colorCount > 1 ? <p className="product-colorcount">{colorCount} colors</p> : null}
       </a>
     );
   }
