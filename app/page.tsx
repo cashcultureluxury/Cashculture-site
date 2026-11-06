@@ -8,18 +8,8 @@ import { ESSENTIALS } from "@/data/essentials";
 import { FAMILY } from "@/data/family";
 import { CLOSING } from "@/data/brand";
 
-// Home is shop-first (the Essentials / Denim Tears pattern): hero, categories,
+// Home is shop-first (the Essentials / Denim Tears pattern): hero,
 // new arrivals, luxury, the full catalog, then the brand story and community.
-
-// Lifestyle tiles into each part of the catalog.
-const CATEGORIES = [
-  { label: "Hoodies", href: "/essentials#hoodies", src: "/images/community-3.webp", alt: "Cash Culture hoodie mirror selfie" },
-  { label: "Tees", href: "/essentials#tees", src: "/images/community-4.webp", alt: "Cash Culture tee on the steps" },
-  { label: "Long Sleeves", href: "/essentials#long-sleeves", src: "/images/community-7.webp", alt: "Cash Culture sweatshirt on the waterfront" },
-  { label: "Sets & Bottoms", href: "/essentials#bottoms", src: "/images/community-10.webp", alt: "Friends in matching Cash Culture sets" },
-  { label: "Luxury", href: "/luxury", src: "/images/trench-camel.webp", alt: "The Cash Culture camel trench coat" },
-  { label: "Beanies", href: "/luxury/silk-beanie", src: "/images/community-14.webp", alt: "CC beanie close up" },
-];
 
 // Newest drops first; badged "New" items from the live catalog.
 const NEW_ARRIVALS = ESSENTIALS.filter((p) => p.badge === "New").slice(0, 8);
@@ -50,7 +40,7 @@ const COMMUNITY = [
 export default function Home() {
   return (
     <main className="cc-home">
-      <ScrollReveal selector=".cc-home .reveal, .cc-home .new-arrivals .product-card, .cc-home .cat-tile, .cc-home .lux-tile, .cc-home .family-card, .cc-home .home-gallery-item" />
+      <ScrollReveal selector=".cc-home .reveal, .cc-home .new-arrivals .product-card, .cc-home .lux-tile, .cc-home .family-card, .cc-home .home-gallery-item" />
 
       {/* HERO */}
       <section className="hero">
@@ -66,25 +56,6 @@ export default function Home() {
         </div>
         <div className="hero-img-wrap">
           <Image src="/images/home-img-2.webp" alt="A builder in the Cash Culture tapestry hoodie" width={440} height={660} sizes="380px" preload />
-        </div>
-      </section>
-
-      {/* SHOP BY CATEGORY */}
-      <section className="section cats" aria-labelledby="cats-title">
-        <div className="section-header">
-          <div>
-            <p className="rule-kicker">Shop</p>
-            <h2 className="section-title" id="cats-title">Shop by <span>category.</span></h2>
-          </div>
-          <Link className="view-all" href="/essentials">Shop All &#x2192;</Link>
-        </div>
-        <div className="cat-grid">
-          {CATEGORIES.map((c) => (
-            <Link className="cat-tile" href={c.href} key={c.label}>
-              <Image src={c.src} alt={c.alt} width={600} height={800} sizes="(max-width: 700px) 50vw, (max-width: 1000px) 33vw, 16vw" />
-              <span className="cat-label">{c.label}<span aria-hidden="true">&#x2192;</span></span>
-            </Link>
-          ))}
         </div>
       </section>
 
