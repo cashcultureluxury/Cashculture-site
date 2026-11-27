@@ -47,23 +47,4 @@ export const FAMILY: FamilyMember[] = [
     quote: "I rep CC because I love to hustle. Before I ever made my first dollar, I was doing this because I genuinely had a love for it. I was always placed in a box by people's expectations and limitations — what they believe is possible for someone else — so my hustle also comes from a place of proving to myself that I'm exactly who I think I am. That's why I rep CC.",
     code: "IAMYOU1937",
   },
-  {
-    name: "Kyrin “Kozzy” Redd",
-    image: "/images/ambassador-kozzy.webp",
-    instagram: "https://www.instagram.com/ohhdattskyy",
-    niche: "Stylist & Fashion Designer",
-    location: "Baltimore, MD",
-    quote: "I support Cash Culture because I connect with what the brand represents beyond just the clothing. I like the idea of wearing something that reflects ambition, creativity, success, and the mindset of building your own legacy. Cash Culture blends luxury with culture in a way that feels authentic to people who are creating their own path, and that's something I genuinely identify with. I'd be proud to represent a brand that encourages people to think bigger, move with purpose, and make their own mark.",
-    code: "KOZZY",
-  },
-  {
-    name: "Myon Davis",
-    image: "/images/ambassador-myon.webp",
-    instagram: "https://www.instagram.com/410.myon",
-    tiktok: "https://www.tiktok.com/@moemoney.410",
-    niche: "CEO of AFS & Party Promoter",
-    location: "Baltimore, MD",
-    quote: "I rep Cash Culture because it represents the grind, the ambition, and the mindset I stand on. It's more than just a name to me — it's about chasing the bag, staying focused, and building something for yourself.",
-    code: "410MYON",
-  },
 ];
