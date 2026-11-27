@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import SaleNote from "@/components/SaleNote";
 import { useState } from "react";
 import Link from "next/link";
 import { useCart } from "./CartContext";
@@ -79,7 +80,7 @@ export default function CartDrawer() {
           {items.length > 0 && (
             <Link className="cart-view-link" href="/cart" onClick={closeCart}>View full cart &rarr;</Link>
           )}
-          <p className="cart-note">Use a Family member&rsquo;s code at checkout for 15% off your first order.</p>
+          <SaleNote />
         </div>
       </aside>
     </>

@@ -304,3 +304,14 @@ img { display: block; }
 
 .cart-view-link { display: block; text-align: center; margin-top: 10px; color: var(--gold); text-decoration: none; font-size: 0.66rem; letter-spacing: 1px; text-transform: uppercase; }
 .cart-view-link:hover { text-decoration: underline; }
+
+/* Black Friday bar (components/SaleBar.tsx) */
+.sale-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 7000; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 6px 14px; width: 100%; min-height: 48px; padding: 8px 16px calc(8px + env(safe-area-inset-bottom, 0px)); border: none; border-top: 1px solid rgba(201,168,76,0.5); background: #0b0a09; color: var(--cream); font-family: inherit; cursor: pointer; }
+.sale-bar-tag { background: var(--gold); color: #000; font-size: 0.6rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; padding: 4px 8px; }
+.sale-bar-text { font-size: 0.72rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
+.sale-bar-code { font-size: 0.72rem; font-weight: 800; letter-spacing: 2px; color: var(--gold); border: 1px dashed var(--gold); padding: 4px 10px; min-width: 9.5em; }
+.sale-bar-end { font-size: 0.62rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
+.sale-bar-spacer { height: 56px; }
+.cart-note-sale { color: var(--gold); font-size: 0.62rem; }
+.cart-note-sale strong { letter-spacing: 1px; }
+@media (max-width: 520px) { .sale-bar-end { display: none; } .sale-bar-spacer { height: 64px; } }
