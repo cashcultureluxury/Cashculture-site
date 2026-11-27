@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import SaleNote from "@/components/SaleNote";
 import "../styles/luxury.css";
 import { useState } from "react";
 import Link from "next/link";
@@ -81,7 +82,7 @@ export default function CartPage() {
               </button>
               {error && <p className="cart-note" role="alert">{error}</p>}
               <Link className="cart-page-continue" href="/essentials">Continue shopping</Link>
-              <p className="cart-note">Use a Family member&rsquo;s code at checkout for 15% off your first order.</p>
+              <SaleNote />
             </aside>
           </div>
         )}
